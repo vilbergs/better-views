@@ -8,6 +8,20 @@
 
 	let { data, onCardClick }: Props = $props();
 
+	function formatWikiLinks(text: string): string {
+		// Remove .md extension first
+		text = text.replace(/\.md$/, "");
+
+		// Replace [[link]] with just the link text (without brackets)
+		// Also handle [[link|display text]] format
+		return text.replace(
+			/\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g,
+			(match, link, displayText) => {
+				return displayText || link;
+			},
+		);
+	}
+
 	function handleCardClick(entry: BasesEntry, event: MouseEvent) {
 		onCardClick?.(entry, event);
 	}
@@ -17,7 +31,9 @@
 	{#each data as group}
 		<div class="kanban-column">
 			<div class="kanban-column-header">
-				<h3 class="kanban-column-title">{group.key || "Ungrouped"}</h3>
+				<h3 class="kanban-column-title">
+					{formatWikiLinks(group.key?.toString() || "Ungrouped")}
+				</h3>
 				<span class="kanban-column-count">{group.entries.length}</span>
 			</div>
 			<div class="kanban-cards">
