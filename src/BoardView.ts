@@ -23,7 +23,7 @@ export class BoardView extends BasesView {
 		const { app } = this;
 
 		// Retrieve the user configured order set in the Properties menu.
-		const order = this.config.getOrder();
+		// const order = this.config.getOrder();
 
 		// Clear entries created by previous iterations. Remember, you should
 		// instead attempt element reuse when possible.

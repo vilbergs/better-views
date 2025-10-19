@@ -1,21 +1,6 @@
-import {
-	App,
-	BasesEntry,
-	BasesEntryGroup,
-	BasesView,
-	Editor,
-	MarkdownView,
-	Modal,
-	Notice,
-	Plugin,
-	PluginSettingTab,
-	QueryController,
-	Setting,
-	TFile,
-} from "obsidian";
-import { mount, unmount } from "svelte";
+import { App, Plugin, PluginSettingTab, Setting } from "obsidian";
+import { unmount } from "svelte";
 import Board from "./src/components/Board.svelte";
-import Tasks from "./src/components/Tasks.svelte";
 import { BoardView, BoardViewType } from "src/BoardView";
 import { TasksView, TasksViewType } from "src/TasksView";
 
@@ -30,7 +15,7 @@ const DEFAULT_SETTINGS: MyPluginSettings = {
 };
 
 export default class MyPlugin extends Plugin {
-	settings: MyPluginSettings;
+	settings: MyPluginSettings = DEFAULT_SETTINGS;
 
 	async onload() {
 		await this.loadSettings();
@@ -134,22 +119,6 @@ export default class MyPlugin extends Plugin {
 
 	async saveSettings() {
 		await this.saveData(this.settings);
-	}
-}
-
-class SampleModal extends Modal {
-	constructor(app: App) {
-		super(app);
-	}
-
-	onOpen() {
-		const { contentEl } = this;
-		contentEl.setText("Woah!");
-	}
-
-	onClose() {
-		const { contentEl } = this;
-		contentEl.empty();
 	}
 }
 

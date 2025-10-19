@@ -1,5 +1,5 @@
 import { BasesEntry, BasesView, Notice, type QueryController } from "obsidian";
-import Tasks from "./components/Tasks.svelte";
+import Tasks from "./src/components/Tasks.svelte";
 import { mount } from "svelte";
 
 export const TasksViewType = "tasks-view";
