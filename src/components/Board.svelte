@@ -154,20 +154,6 @@
 		word-wrap: break-word;
 	}
 
-	.kanban-card-meta {
-		display: flex;
-		gap: 0.5rem;
-		align-items: center;
-	}
-
-	.kanban-card-extension {
-		font-size: 0.75rem;
-		color: var(--text-muted);
-		background-color: var(--background-secondary);
-		padding: 0.125rem 0.5rem;
-		border-radius: 4px;
-	}
-
 	/* Scrollbar styling */
 	.kanban-board::-webkit-scrollbar,
 	.kanban-cards::-webkit-scrollbar {
