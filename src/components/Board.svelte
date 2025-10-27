@@ -95,7 +95,7 @@
 
 	.kanban-column-title {
 		margin: 0;
-		font-size: 1rem;
+		font-size: var(--font-smaller);
 		font-weight: 600;
 		color: var(--text-normal);
 	}
@@ -148,7 +148,7 @@
 	}
 
 	.kanban-card-title {
-		font-size: 0.9rem;
+		font-size: var(--font-small);
 		font-weight: 500;
 		color: var(--text-normal);
 		word-wrap: break-word;
